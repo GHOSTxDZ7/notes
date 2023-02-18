@@ -6,20 +6,23 @@ function setup()
     for (let i = 0; i < books.length; i++)
     {
         books[i].onclick = function(e) {
+            console.log(books[i])
             addItem(e);
         }
     }
 }
-
+ 
 function addItem (e) {
     let bookId = e.target.getAttribute("id");
+    console.log(bookId)
     if(!favList.find(element => element === bookId)){
         let bookDiv = document.getElementById("book" + bookId);
-
+        console.log(bookDiv)
         let favDiv = document.createElement("div");
         favDiv.setAttribute("id", "wish" + bookId);
         favDiv.setAttribute("class", "book");
         favDiv.setAttribute("style", "margin-bottom: 10px;")
+        console.log(favDiv)
         favDiv.innerHTML += bookDiv.innerHTML;
         let removeBtn = document.createElement("input");
         removeBtn.setAttribute("id", "remove" + bookId);
